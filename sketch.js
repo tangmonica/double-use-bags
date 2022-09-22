@@ -137,7 +137,7 @@ function setup() {
     bags[19] = new Bag(imgs["pb-tall1"], snds["pb-tall"], "blue baris baguette boulangerie bag");
     bags[20] = new Bag(imgs["portos"], snds["portos"], "milk n berries cake yum");
     bags[21] = new Bag(imgs["produce-green"], snds["produce-green"], "green produce bag, compact form");
-    bags[22] = new Bag(imgs["produce-zion"], snds["produce-zion"], "produce bag from Zion Supermarket, compact form");
+    bags[22] = new Bag(imgs["produce-zion"], snds["produce-zion"], "produce bag from Zion Market, compact form");
     bags[23] = new Bag(imgs["reusable"], snds["reusable"], "it says it's reusable");
     bags[24] = new Bag(imgs["rrr"], snds["rrr"], "reduce, reuse & recycle! okay!");
     bags[25] = new Bag(imgs["thank-you"], snds["thank-you"], "please recycle this bag, THANK YOU.");
