@@ -30,12 +30,17 @@ const title = {
     size: window.innerHeight / 4,
     col: 'white'
 }
+
+let buttonClicked;
+let buttonSound;
 const button = {
-    x: window.innerWidth * 7 / 8,
+    x: window.innerWidth * 4 / 5,
     y: window.innerHeight / 2,
-    r: window.innerHeight / 5,
+    r: window.innerHeight / 8,
     col: 'white',
-    name: 'CHOOSE A BAG',
+    line1: 'PICK',
+    line2: 'A',
+    line3: 'BAG',
     nameSize: window.innerHeight / 5 / 5,
     nameCol: 'blue'
 }
@@ -154,6 +159,7 @@ function draw() {
     fill(title.col);
     text(title.line1, title.x, title.y + title.size);
     text(title.line2, title.x, title.y + 2 * title.size);
+    fill('blue');
     text(title.line3, title.x, title.y + 3 * title.size);
 
     randomBag = bags[randomBagIndex];
@@ -161,12 +167,20 @@ function draw() {
 
     noStroke();
     fill(button.col);
-    circle(button.x, button.y, button.r);
+    if (buttonClicked && buttonSound.isPlaying()) {
+        circle(button.x + random(-3, 3), button.y, button.r * 2);
+    }
+    else {
+        circle(button.x, button.y, button.r * 2);
+        buttonClicked = false;
+    }
     textAlign(CENTER);
     textStyle(BOLD);
     textSize(button.nameSize);
     fill(button.nameCol)
-    text(button.name, button.x, button.y);
+    text(button.line1, button.x, button.y - button.nameSize / 2);
+    text(button.line2, button.x, button.y + button.nameSize / 2);
+    text(button.line3, button.x, button.y + 3 * button.nameSize / 2);
 
 }
 
@@ -177,15 +191,10 @@ function resizeImages(newHeight) {
 }
 
 function mousePressed() {
-
     let img = randomBag.img;
     let centerX = windowWidth / 2;
     let centerY = windowHeight / 2;
     console.log("mouse", mouseX, mouseY);
-
-
-    // console.log("center", centerX, centerY);
-    // console.log("img", img.width / 2, img.height / 2);
     
     if ( abs(mouseX - centerX) < (img.width / 2) && abs(mouseY - centerY) < (img.height / 2) ) {
         console.log('Bag clicked');
@@ -197,6 +206,8 @@ function mousePressed() {
         let index = floor(random() * rummage.length);
         console.log('Rummage sound index:', index);
         rummage[index].play();
+        buttonClicked = true;
+        buttonSound = rummage[index];
         rummage[index].onended(getNewBag);
     }
 }
