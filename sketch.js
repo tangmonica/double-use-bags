@@ -4,7 +4,7 @@
 
 let bgCol = [150, 200, 150];
 
-const numBags = 32;
+const numBags = 31;
 let imgs = {};
 let snds = {};
 let rummage = new Array();
