@@ -34,14 +34,14 @@ const title = {
 let buttonClicked;
 let buttonSound;
 const button = {
-    x: window.innerWidth * 4 / 5,
+    x: window.innerWidth * 0.8,
     y: window.innerHeight / 2,
     r: window.innerHeight / 8,
     col: 'white',
     line1: 'PICK',
     line2: 'A',
     line3: 'BAG',
-    nameSize: window.innerHeight / 5 / 5,
+    nameSize: window.innerHeight / 25,
     nameCol: 'blue'
 }
 
@@ -78,7 +78,6 @@ function preload() {
     imgs["white02"] = loadImage("imgs/white02.png");
     imgs["white03"] = loadImage("imgs/white03.png");
     imgs["white04"] = loadImage("imgs/white04.png");
-    imgs["white05"] = loadImage("imgs/white05.png");
 
     snds["banh-mi"] = loadSound("sounds/banh-mi.mp3");
     snds["brown-handle"] = loadSound("sounds/brown-handle.mp3");
@@ -116,38 +115,37 @@ function setup() {
 
     resizeImages(windowHeight * 3 / 4);
 
-    bags[0] = new Bag(imgs["banh-mi"], snds["banh-mi"], "banh mi bag");
-    bags[1] = new Bag(imgs["brown-handle"], snds["brown-handle"], "");
-    bags[2] = new Bag(imgs["brown00"], snds["brown0"], "");
-    bags[3] = new Bag(imgs["brown01"], snds["brown1"], "");
-    bags[4] = new Bag(imgs["brown02"], snds["brown0"], "");
-    bags[5] = new Bag(imgs["brown03"], snds["brown1"], "");
-    bags[6] = new Bag(imgs["brown04"], snds["brown0"], "");
-    bags[7] = new Bag(imgs["brown05"], snds["brown1"], "");
-    bags[8] = new Bag(imgs["brown06"], snds["brown0"], "");
-    bags[9] = new Bag(imgs["crave"], snds["crave"], "");
-    bags[10] = new Bag(imgs["eat-healthy"], snds["eat-healthy"], "");
-    bags[11] = new Bag(imgs["freshroll"], snds["freshroll"], "");
-    bags[12] = new Bag(imgs["ikes0"], snds["ikes"], "");
-    bags[13] = new Bag(imgs["ikes1"], snds["ikes"], "");
-    bags[14] = new Bag(imgs["jersey-mikes0"], snds["jersey-mikes"], "");
-    bags[15] = new Bag(imgs["jersey-mikes1"], snds["jersey-mikes"], "");
-    bags[16] = new Bag(imgs["pb-big0"], snds["pb-big"], "");
-    bags[17] = new Bag(imgs["pb-big1"], snds["pb-big"], "");
-    bags[18] = new Bag(imgs["pb-tall0"], snds["pb-tall"], "");
-    bags[19] = new Bag(imgs["pb-tall1"], snds["pb-tall"], "");
-    bags[20] = new Bag(imgs["portos"], snds["portos"], "");
-    bags[21] = new Bag(imgs["produce-green"], snds["produce-green"], "");
-    bags[22] = new Bag(imgs["produce-zion"], snds["produce-zion"], "");
-    bags[23] = new Bag(imgs["reusable"], snds["reusable"], "");
-    bags[24] = new Bag(imgs["rrr"], snds["rrr"], "");
-    bags[25] = new Bag(imgs["thank-you"], snds["thank-you"], "");
-    bags[26] = new Bag(imgs["white00"], snds["white0"], "");
-    bags[27] = new Bag(imgs["white01"], snds["white1"], "");
-    bags[28] = new Bag(imgs["white02"], snds["white0"], "");
-    bags[29] = new Bag(imgs["white03"], snds["white1"], "");
-    bags[30] = new Bag(imgs["white04"], snds["white0"], "");
-    bags[31] = new Bag(imgs["white05"], snds["white1"], "");
+    bags[0] = new Bag(imgs["banh-mi"], snds["banh-mi"], "bag from Banh Mi & Rolls Factory");
+    bags[1] = new Bag(imgs["brown-handle"], snds["brown-handle"], "bag with a handy handle");
+    bags[2] = new Bag(imgs["brown00"], snds["brown0"], "brown bag from Cheese 'n Stuff");
+    bags[3] = new Bag(imgs["brown01"], snds["brown1"], "just a brown paper bag");
+    bags[4] = new Bag(imgs["brown02"], snds["brown0"], "classic brown bag");
+    bags[5] = new Bag(imgs["brown03"], snds["brown1"], "whoops this one got ripped");
+    bags[6] = new Bag(imgs["brown04"], snds["brown0"], "bog standard brown bag");
+    bags[7] = new Bag(imgs["brown05"], snds["brown1"], "wow, it's a bag");
+    bags[8] = new Bag(imgs["brown06"], snds["brown0"], "this once held a sandwich");
+    bags[9] = new Bag(imgs["crave"], snds["crave"], "huge brown bag from Crave Subs");
+    bags[10] = new Bag(imgs["eat-healthy"], snds["eat-healthy"], "eat healthy and enjoy life i guess");
+    bags[11] = new Bag(imgs["freshroll"], snds["freshroll"], "they gave this to me for free");
+    bags[12] = new Bag(imgs["ikes0"], snds["ikes"], "from the Ike's on College Ave");
+    bags[13] = new Bag(imgs["ikes1"], snds["ikes"], "love then sandwiches..");
+    bags[14] = new Bag(imgs["jersey-mikes0"], snds["jersey-mikes"], "an oxymoron in the wild!");
+    bags[15] = new Bag(imgs["jersey-mikes1"], snds["jersey-mikes"], "a regular #2 Jersey Shore's Favorite, Mike's way, with cherry pepper relish, to-go");
+    bags[16] = new Bag(imgs["pb-big0"], snds["pb-big"], "can't believe they don't charge extra for these bags");
+    bags[17] = new Bag(imgs["pb-big1"], snds["pb-big"], "a navy blue bag with white lettering");
+    bags[18] = new Bag(imgs["pb-tall0"], snds["pb-tall"], "there are handles hidden on the inside");
+    bags[19] = new Bag(imgs["pb-tall1"], snds["pb-tall"], "blue baris baguette boulangerie bag");
+    bags[20] = new Bag(imgs["portos"], snds["portos"], "milk n berries cake yum");
+    bags[21] = new Bag(imgs["produce-green"], snds["produce-green"], "green produce bag, compact form");
+    bags[22] = new Bag(imgs["produce-zion"], snds["produce-zion"], "produce bag from Zion Supermarket, compact form");
+    bags[23] = new Bag(imgs["reusable"], snds["reusable"], "it says it's reusable");
+    bags[24] = new Bag(imgs["rrr"], snds["rrr"], "reduce, reuse & recycle! okay!");
+    bags[25] = new Bag(imgs["thank-you"], snds["thank-you"], "please recycle this bag, THANK YOU.");
+    bags[26] = new Bag(imgs["white00"], snds["white0"], "just a white paper bag");
+    bags[27] = new Bag(imgs["white01"], snds["white1"], "white bag from Cheese 'n Stuff");
+    bags[28] = new Bag(imgs["white02"], snds["white0"], "you're telling me this paper bag weighs 4 LB?? no way...");
+    bags[29] = new Bag(imgs["white03"], snds["white1"], "white paper bag. typical.");
+    bags[30] = new Bag(imgs["white04"], snds["white0"], "oobf. big rip.");
 }
   
 function draw() {
@@ -164,6 +162,11 @@ function draw() {
 
     randomBag = bags[randomBagIndex];
     image(randomBag.img, windowWidth/2, windowHeight/2);
+    fill('yellow');
+    textAlign(LEFT);
+    textWrap(WORD);
+    textSize(button.nameSize * 4 / 5);
+    text(randomBag.description, windowWidth * 0.65, windowHeight * 0.75, windowWidth / 3);
 
     noStroke();
     fill(button.col);
