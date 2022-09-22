@@ -1,2 +1,3 @@
 # double-use-bags
-Art 173 Project 1
+
+live site: https://tangmonica.github.io/double-use-bags/
